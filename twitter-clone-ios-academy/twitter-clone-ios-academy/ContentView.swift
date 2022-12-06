@@ -7,7 +7,25 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    
+    let tweets: [TweetModel] = [ // ubacujemo strukturu TweetyModel kao jedan element polja
+        TweetModel(
+            content: "tweet 1",
+            username: "username",
+            date: Date(),
+            image: "crow",
+            isFavourite: false),
+        TweetModel(
+            content: "tweet 2",
+            username: "username",
+            date: Date(),
+            image: "crow",
+            isFavourite: true),
+    ]
+    
     var body: some View {
         VStack {
             /*Image(systemName: "globe")
@@ -24,11 +42,11 @@ struct ContentView: View {
             }*/
             
             HStack{ // header s title i buttonom za login
-                Text("Tweety") // header
+                Text("Tweeter") // header
                     .bold()
                     .font(.title)
                 
-                Spacer() // pravi prostor izmedu dva elementa
+                Spacer() // pravi prostor izmedu dva elementa, slicno kao space-between
                 
                 Button(action: {}) { // login button
                     Text("login")
@@ -37,10 +55,9 @@ struct ContentView: View {
             
             Spacer() // pusha text na vrh
             
-            List{ // pravimo listu u app-u (u ovom sluc s tweetovima)
-                TweetyPost() // extractali HStack u poseban view radi preglednosti i poput funkcije u C-u
-                TweetyPost()
-                TweetyPost()
+            List(tweets){ tweet in// pravimo listu u app-u (u ovom sluc s tweetovima)
+                // predajemo kao argument listi polje tweets
+                TweetPost(tweet: tweet) // slicno for each petlji koja prolazi kroz polje tweets te pravi dva TweetPost objekta u listi 	
             }
             .listStyle(.plain) // promjena stila liste
                 
@@ -52,22 +69,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct TweetyPost: View {
-    var body: some View {
-        HStack{
-            Image("crow") // stavljamo sliku u app(stavljamo samo ime slike)
-                .resizable() // resizeamo sliku
-                .frame(width: 55, height: 55) // fiksiramo width i height na odredenu velicinu
-                .clipShape(Circle()) // mjenjamo oblik slike
-            VStack {
-                Text("username")
-                Text("Tweet 1")
-                Text(Date(), style: .relative) // dodajemo datum kao tekst slicno kao datetime u C#, relative je format datuma
-                
-            }
-        }
     }
 }
