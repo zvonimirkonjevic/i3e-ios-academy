@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3602B829478D7E00166DD2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3602B729478D7E00166DD2 /* SearchView.swift */; };
+		3F3602BA294793B900166DD2 /* TweetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3602B9294793B900166DD2 /* TweetData.swift */; };
+		3F3602BC294799B300166DD2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3602BB294799B300166DD2 /* UserData.swift */; };
+		3F3602BE2947A34300166DD2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3602BD2947A34300166DD2 /* ProfileView.swift */; };
 		3F4634BB2944688100B649DF /* ios_academyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4634BA2944688100B649DF /* ios_academyApp.swift */; };
 		3F4634BD2944688100B649DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4634BC2944688100B649DF /* ContentView.swift */; };
 		3F4634BF2944688300B649DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4634BE2944688300B649DF /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3602B729478D7E00166DD2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3F3602B9294793B900166DD2 /* TweetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetData.swift; sourceTree = "<group>"; };
+		3F3602BB294799B300166DD2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3F3602BD2947A34300166DD2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		3F4634B72944688100B649DF /* ios-academy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-academy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4634BA2944688100B649DF /* ios_academyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_academyApp.swift; sourceTree = "<group>"; };
 		3F4634BC2944688100B649DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +69,10 @@
 				3F4634C02944688300B649DF /* Preview Content */,
 				3F4634C8294468E200B649DF /* TweetrPost.swift */,
 				3F4634CC29447D3C00B649DF /* LoginView.swift */,
+				3F3602B729478D7E00166DD2 /* SearchView.swift */,
+				3F3602B9294793B900166DD2 /* TweetData.swift */,
+				3F3602BB294799B300166DD2 /* UserData.swift */,
+				3F3602BD2947A34300166DD2 /* ProfileView.swift */,
 			);
 			path = "ios-academy";
 			sourceTree = "<group>";
@@ -143,8 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3602BE2947A34300166DD2 /* ProfileView.swift in Sources */,
+				3F3602B829478D7E00166DD2 /* SearchView.swift in Sources */,
 				3F4634C9294468E200B649DF /* TweetrPost.swift in Sources */,
+				3F3602BC294799B300166DD2 /* UserData.swift in Sources */,
 				3F4634BD2944688100B649DF /* ContentView.swift in Sources */,
+				3F3602BA294793B900166DD2 /* TweetData.swift in Sources */,
 				3F4634CD29447D3C00B649DF /* LoginView.swift in Sources */,
 				3F4634BB2944688100B649DF /* ios_academyApp.swift in Sources */,
 			);

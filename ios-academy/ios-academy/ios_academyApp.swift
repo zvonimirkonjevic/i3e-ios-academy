@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Bird{
+/*struct Bird{
     var greeting: String { // computed
         return "Chirp!"    // property
     }
@@ -29,7 +29,7 @@ func preformAction(array: [Int], action: (Int) -> Int){ // higer-order function
     }
 }
 
-func test(){
+    func test(){
     //let bird = Bird()
     //bird.greet()
     // let greeting: String = "Hello!" --> eksplicitna deklaracija varijable, s let deklariramo konstante
@@ -56,13 +56,32 @@ func test(){
     preformAction(array: [1,2,3]) { number in
         return number+2
     }
-}
+}*/
 
 @main
 struct twitter_clone_ios_academyApp: App {
+    
+    @StateObject var tweetData = TweetData() // instanciranje klase TweetData koja sadrzava sve trenutne tweetove, StateObject spoj @State anotacije i ObservableObjecta, pretvara TweetData u State object koji se na promjenu unutar TweetData i sam mijenja
+    
+    @StateObject var userData = UserData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView{
+                ContentView()
+                    .tabItem {
+                        Label("Feed", systemImage: "list.bullet.circle")
+                    }
+                SearchView()
+                    .tabItem{
+                        Label("Search", systemImage: "magnifyingglass.circle")
+                    }
+                ProfileView()
+                    .tabItem {
+                        Label("Profile", systemImage: "person.circle")
+                    }
+            }
+            .environmentObject(tweetData)
+            .environmentObject(userData)
         }
     }
 }

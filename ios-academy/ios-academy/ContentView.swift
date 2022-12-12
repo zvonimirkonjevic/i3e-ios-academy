@@ -9,26 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var tweetData: TweetData
+    
+    @EnvironmentObject var userData: UserData
+    
     @State var content: String = ""
     
-    @State var username: String = ""
     
     @State var isLoginViewPresented = false
-    
-    @State var tweets: [TweetModel] = [ // ubacujemo strukturu TweetyModel kao jedan element polja
-        TweetModel(
-            content: "tweet 1",
-            username: "username",
-            date: Date(),
-            image: "crow",
-            isFavourite: false),
-        TweetModel(
-            content: "tweet 2",
-            username: "username",
-            date: Date(),
-            image: "crow",
-            isFavourite: true),
-    ]
     
     var body: some View {
         VStack {
@@ -46,7 +34,7 @@ struct ContentView: View {
             }*/
             
             HStack{ // header s title i buttonom za login
-                Text(username.isEmpty ? "Guest" : username) // header
+                Text(userData.username.isEmpty ? "Guest" : userData.username) // header
                     .font(.title)
                 
                 Spacer() // pravi prostor izmedu dva elementa, slicno kao space-between
@@ -61,7 +49,7 @@ struct ContentView: View {
             
             Spacer() // pusha text na vrh
             
-            List($tweets){ tweet in// pravimo listu u app-u (u ovom sluc s tweetovima)
+            List($tweetData.tweets){ tweet in// pravimo listu u app-u (u ovom sluc s tweetovima)
                 // predajemo kao argument listi polje tweets
                 TweetPost(tweet: tweet) // slicno for each petlji koja prolazi kroz polje tweets te pravi dva TweetPost objekta u listi
             }
@@ -72,7 +60,7 @@ struct ContentView: View {
                 TextField("Content", text: $content)
                 
                 Button(action: { // button koji na click appenda novi tweet s mogucnosti unosa contenta tweeta
-                    tweets.append(TweetModel(content: content, username: "zvonimirkonjevic", date: Date(), image: "crow", isFavourite: true))
+                    tweetData.tweets.append(TweetModel(content: content, username: "zvonimirkonjevic", date: Date(), image: "crow"))
                     content = "" // resetira content na prazno nakon sto smo objavili tweet
                 }){
                     Text("New tweet")
@@ -83,7 +71,7 @@ struct ContentView: View {
         }
         .padding()
         .sheet(isPresented: $isLoginViewPresented) {
-            LoginView(username: $username, isPresented: $isLoginViewPresented)
+            LoginView(username: $userData.username, isPresented: $isLoginViewPresented)
         }
     }
 }
@@ -91,5 +79,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(TweetData())
+            .environmentObject(UserData())
+        
     }
 }

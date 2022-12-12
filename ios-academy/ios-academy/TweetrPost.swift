@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TweetModel : Identifiable{
-    var id = UUID()
+    var id = UUID().uuidString
     
     // kreiramo novu strukturu kako bi mogli imati vise razlicitih contenta, username-a, itd.
     let content: String
     let username: String
     let date: Date
     let image: String
-    var isFavourite: Bool
-    
-    
 }
 
 struct TweetPost: View {
     
+    
     @Binding var tweet: TweetModel // kako bi mogli omoguciti like i unlike tweeta
+    
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         HStack{
@@ -40,9 +40,16 @@ struct TweetPost: View {
             Spacer()
             
             Button(action: {
-                tweet.isFavourite.toggle() // omogucuje promjenu stanja gumba like u true ili false (item koji mjenjamo ne smije biti let vec var)
+                
+               if userData.favouriteTweets.contains(tweet.id){
+                   userData.favouriteTweets.remove(tweet.id)
+                }
+                else{
+                    userData.favouriteTweets.insert(tweet.id)
+                }
+               // tweet.isFavourite.toggle() // omogucuje promjenu stanja gumba like u true ili false (item koji mjenjamo ne smije biti let vec var)
             }) {
-                if(tweet.isFavourite){
+                if userData.favouriteTweets.contains(tweet.id){
                     Image(systemName: "heart.fill")
                         .foregroundColor(.red)
                 }
@@ -61,7 +68,7 @@ struct TweetPost_Previews: PreviewProvider {
             content: "tweet 1",
             username: "username",
             date: Date(),
-            image: "crow",
-            isFavourite: true )))
+            image: "crow")))
+        .environmentObject(UserData())
     }
 }
