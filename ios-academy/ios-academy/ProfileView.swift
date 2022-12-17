@@ -19,8 +19,6 @@ struct ProfileView: View {
         }
     }
     
-    
-    
     var body: some View {
         VStack{
             HStack{
@@ -45,7 +43,6 @@ struct ProfileView: View {
                             Binding.constant(tweetsModel))
                 }
                 .listStyle(.plain)
-                
                 
             }
             

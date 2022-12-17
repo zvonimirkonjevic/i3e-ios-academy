@@ -60,7 +60,7 @@ struct ContentView: View {
                 TextField("Content", text: $content)
                 
                 Button(action: { // button koji na click appenda novi tweet s mogucnosti unosa contenta tweeta
-                    tweetData.tweets.append(TweetModel(content: content, username: "zvonimirkonjevic", date: Date(), image: "crow"))
+                    tweetData.tweets.append(TweetModel(content: content, username: "zvonimirkonjevic", date: Date(), imageURL: IMAGE_URL))
                     content = "" // resetira content na prazno nakon sto smo objavili tweet
                 }){
                     Text("New tweet")

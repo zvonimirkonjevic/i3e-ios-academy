@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let IMAGE_URL = URL(string: "https://news.stanford.edu/wp-content/uploads/2020/10/Birds_Culture-1-copy.jpg")!
+
 /*struct Bird{
     var greeting: String { // computed
         return "Chirp!"    // property
@@ -82,6 +84,7 @@ struct twitter_clone_ios_academyApp: App {
             }
             .environmentObject(tweetData)
             .environmentObject(userData)
+            .task(tweetData.fetchTweets)
         }
     }
 }
