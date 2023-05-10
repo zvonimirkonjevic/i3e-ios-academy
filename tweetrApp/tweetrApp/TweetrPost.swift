@@ -17,11 +17,6 @@ struct TweetModel : Identifiable, Codable{ // Codable omogucava da ucitamo JSON
     let imageURL: URL
 }
 
-
-
-
-
-
 struct TweetPost: View {
     
     
