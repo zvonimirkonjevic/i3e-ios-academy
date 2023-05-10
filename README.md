@@ -1,2 +1,3 @@
 # ios-academy
-tasks from ios academy
+
+This is repository of Swift application developed during I3E iOS Academy.
